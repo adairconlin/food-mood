@@ -1,11 +1,8 @@
 # project-one
 
+## FOODS & MOODS
 
-/////////////////////////////////////////////////////////
-FOODS & MOODS
-
-
-Returns meals and cocktails to the user to make.
+### Returns meals and cocktails to the user to make.
 
 As someone who hosts weekend events,
 I want an app that returns meals and pairs a cocktail with it.
@@ -20,4 +17,3 @@ When I click on the cocktail button,
 Then a cocktail with it's ingredients are presented.
 
 Allow user to save a list of their favorites.
-/////////////////////////////////////////////////////////
