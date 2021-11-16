@@ -1,5 +1,3 @@
-# project-one
-
 ## FOODS & MOODS
 
 ### Returns meals and cocktails to the user to make.
