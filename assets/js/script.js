@@ -6,7 +6,7 @@ let displayDishes = function(data) {
     }
 
     cuisines.forEach(cuisine => {
-        cuisine.removeEventListener("click", cuisineEvent)
+        cuisine.removeEventListener("click", cuisineSelectEvent)
     });
 };
 
