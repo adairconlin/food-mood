@@ -1,19 +1,17 @@
 let displayDishes = function(data) {
-    let targetDiv = document.querySelectorAll("#cuisines")
-    targetDiv.forEach(div => {
-        let target = div.getAttribute("target");
-        if(target === "0") {
-            div.textContent = data.results[0].title;
-        } else if(target === "1") {
-            div.textContent = data.results[1].title;
-        } else {
-            div.textContent = data.results[2].title;
-        }
-        div.removeEventListener("click", cuisineEvent);
-    })
+    for(let i = 0; i < data.results.length; i++) {
+        let selectDiv = $("[target=dish" + i + "]");
+        selectDiv[0].innerHTML = data.results[i].title;
+        console.log(data.results[i].title);
+    }
+
+    cuisines.forEach(cuisine => {
+        cuisine.removeEventListener("click", cuisineEvent)
+    });
 };
 
 let getMeals = function(cuisine) {
+    console.log("test");
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=3&apiKey=" + adairKey;
 
@@ -26,12 +24,12 @@ let getMeals = function(cuisine) {
     })
 };
 
-let cuisineEvent = function(event) {
+let cuisineSelectEvent = function(event) {
     let choice = event.target.textContent;
     getMeals(choice.trim());
 }
 
 let cuisines = document.querySelectorAll("#cuisines");
 cuisines.forEach(cuisine => {
-    cuisine.addEventListener("click", cuisineEvent)
+    cuisine.addEventListener("click", cuisineSelectEvent)
 });
