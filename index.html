@@ -4,18 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Food Mood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="./index.html">
+                <figure class="image">
+                    <img src="./assets/images/logo.png">
+                </figure>
+                <figure class="image">
+                    <img src="./assets/images/text-foodmood.png">
+                </figure>
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
 
-    </header>
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <div class="navbar-item">
+                    <span>your favorite meal + your new favorite cocktail.</span>
+                </div>
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="navbar-item p-4">
+                        home
+                      </a>
+                
+                      <a class="navbar-item p-4">
+                        about
+                      </a>
+      
+                      <a class="navbar-item p-4">
+                          company
+                      </a>
+      
+                  <div class="buttons pr-2">
+                    <a class="button is-light">
+                      Log in
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </nav>
     
     <section>
-        
+        <!--TEMPORARY: Used for initially integrating APIs-->
+        <div class="columns has-text-centered is-centered m-5 is-multiline is-mobile">
+            <div class="column m-5 is-full-mobile is-one-half-tablet is-one-third-desktop" id="cuisines">
+                <h3 class="title is-4" target="dish1">American</h3>
+            </div>
+            <div class="column m-5 is-full-mobile is-one-half-tablet is-one-third-desktop" id="cuisines">
+                <h3 class="title is-4" target="dish0">French</h3>
+            </div>
+            <div class="column m-5 is-full-mobile is-one-half-tablet is-one-third-desktop" id="cuisines">
+                <h3 class="title is-4" target="dish2">Indian</h3>
+            </div>
+            <div class="column m-5 is-full-mobile is-one-half-tablet is-one-third-desktop" id="cuisines">
+                <h3 class="title is-4" target="dish0">Italian</h3>
+            </div>
+            <div class="column m-5 is-full-mobile is-one-half-tablet is-one-third-desktop" id="cuisines">
+                <h3 class="title is-4" target="dish1">Mexican</h3>
+            </div>
+            <div class="column m-5 is-full-mobile is-one-half-tablet is-one-third-desktop" id="cuisines">
+                <h3 class="title is-4" target="dish2">Japanese</h3>
+            </div>
+        </div>
     </section>
 
-    <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
