@@ -26,14 +26,82 @@ body {
     color: white;
 }
 
-.columns {
-    background-color: ;
+#top-column {
+    background-color: rgb(252, 239, 215);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
 }
 
+#bottom-column {
+    background-color: rgb(252, 239, 215);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.options-container {
+    padding: 5%;
+}
+
+.cuisine-box {
+    height: 300px;
+    width: 300px;
+}
+
+/* shadowing */
+.navbar, #top-column, #bottom-column, .cuisine-box {
+    box-shadow: 5px 10px 8px rgb(204, 204, 204);
+}
+
+.american {
+    background-color: #b1e8ff;
+    transition: 0.25s;
+}
+
+.american:hover {
+    background-color: #b1e8ffb0;
+}
+.french {
+    background-color: #ffb1b1;
+    transition: 0.25s;
+}
+.french:hover {
+    background-color: #ffb1b1b9;
+}
+
+.indian {
+    background-color: #fdffb1;
+    transition: 0.25s;
+}
+.indian:hover {
+    background-color: #fcffb18f;
+}
+
+.italian {
+    background-color: #b1b9ff;
+    transition: 0.25s;
+}
+.italian:hover {
+    background-color: #b1b9ffb2;
+}
+
+.mexican {
+    background-color: #b1ffb9;
+    transition: 0.25s;
+}
+.mexican:hover {
+    background-color: #b1ffb97c;
+}
+
+.japanese {
+    background-color: #ffd7b1;
+    transition: 0.25s;
+}
+.japanese:hover {
+    background-color: #ffd7b175;
+}
+
+
 #cuisines {
-    border: 4px solid salmon;
     border-radius: 0.5rem;
-    background-color: #fffefa;
+    /* background-color: #fffefa; */
 }
