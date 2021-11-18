@@ -12,14 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation"> 
+    <!-- NAVBAR START -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation"> 
         <div class="navbar-brand">
             <a class="navbar-item" href="./index.html">
                 <figure class="image">
-                    <img src="./assets/images/logo.svg">
+                    <img src="./assets/images/logo.png">
                 </figure>
                 <figure class="image">
-                    <img src="./assets/images/text-foodmood.svg">
+                    <img src="./assets/images/text-foodmood.png">
                 </figure>
               </a>
           
@@ -60,9 +61,16 @@
               </div>
         </div>
     </nav>
-    
+    <!-- NAVBAR END -->
+
+    <!-- ADD HERO HERE START -->
+    <hero>
+
+    </hero>
+    <!-- HERO END -->
+
+   <!-- CUISINE OPTIONS CONTAINERS START -->
     <section class="options-container">
-        <!--TEMPORARY: Used for initially integrating APIs-->
         <div class="columns has-text-centered is-centered mx-5 mt-5 pt-5 is-multiline is-mobile" id="top-column">
             <div class="american cuisine-box level m-5 is-half-tablet is-one-third-desktop" id="cuisines">
                 <h3 class="title is-4 level-item tex-effect" target="dish1">American</h3>
@@ -84,9 +92,9 @@
             <div class="japanese cuisine-box level m-5 is-half-tablet is-one-third-desktop" id="cuisines">
                 <h3 class="title is-4 level-item has-text-grey-dark" target="dish2">Japanese</h3>
             </div>
-        </div>
-            
+        </div>     
     </section>
+    <!-- CUISINE OPTIONS CONTAINERS END -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>

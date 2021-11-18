@@ -7,7 +7,7 @@
     --main-bg-color: #fde0cf;
 }
 
-
+/* APPLY FONT FAMILY TO PAGE */
 * {
     font-family: 'Outfit', sans-serif;
 }
@@ -16,6 +16,7 @@ body {
     background-color: rgb(250, 246, 240);
 }
 
+/* Navbar Styling Start */
 .navbar {
     background-color: var(--orange);
     border-bottom-left-radius: 1rem;
@@ -25,7 +26,9 @@ body {
 .navbar a, .navbar span {
     color: white;
 }
+/* Navbar Styling End */
 
+/*options-container Styling Start */
 #top-column {
     background-color: rgb(252, 239, 215);
     border-top-left-radius: 1rem;
@@ -37,7 +40,9 @@ body {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
+/* options-container Styling End */
 
+/* Cuisine Container Stlying Start */
 .options-container {
     padding: 5%;
 }
@@ -47,18 +52,13 @@ body {
     width: 300px;
 }
 
-/* shadowing */
-.navbar, #top-column, #bottom-column, .cuisine-box {
-    box-shadow: 5px 10px 8px rgb(204, 204, 204);
-}
-
+/*If time provides, will find a better way for this effect with less code */
 .american {
     background-color: #b1e8ff;
     transition: 0.25s;
 }
-
 .american:hover {
-    background-color: #b1e8ffb0;
+    background-color: #b1e8ffa1;
 }
 .french {
     background-color: #ffb1b1;
@@ -67,7 +67,6 @@ body {
 .french:hover {
     background-color: #ffb1b1b9;
 }
-
 .indian {
     background-color: #fdffb1;
     transition: 0.25s;
@@ -75,7 +74,6 @@ body {
 .indian:hover {
     background-color: #fcffb18f;
 }
-
 .italian {
     background-color: #b1b9ff;
     transition: 0.25s;
@@ -83,7 +81,6 @@ body {
 .italian:hover {
     background-color: #b1b9ffb2;
 }
-
 .mexican {
     background-color: #b1ffb9;
     transition: 0.25s;
@@ -91,7 +88,6 @@ body {
 .mexican:hover {
     background-color: #b1ffb97c;
 }
-
 .japanese {
     background-color: #ffd7b1;
     transition: 0.25s;
@@ -105,3 +101,9 @@ body {
     border-radius: 0.5rem;
     /* background-color: #fffefa; */
 }
+
+/* shadowing */
+.navbar, #top-column, #bottom-column, .cuisine-box {
+    box-shadow: 5px 10px 8px rgb(204, 204, 204);
+}
+/* Cuisine Container Styling End */
