@@ -21,8 +21,6 @@ let getCocktail = function() {
 let displayIngredients = function(data) {
     // Assign the ingredient array to the variable `ingredients`
     let ingredients = data.results[0].missedIngredients;
-    // Replace this - use jQuery to specify where the ingredients
-    // should be appended to based on where the user clicked
     let mainBody = document.querySelector(".options-container");
 
     let newList = document.createElement("ul");
@@ -84,7 +82,10 @@ let displayDishes = function(data) {
     for(let i = 0; i < data.results.length; i++) {
         // Search for the correct div specified by its targe attribute
         let selectDiv = $("[target=dish" + i + "]");
+        let parentDiv = selectDiv[0].parentNode;
         selectDiv[0].innerHTML = data.results[i].title;
+        parentDiv.style.backgroundImage = ("url('" + data.results[i].image + "')");
+        parentDiv.style.backgroundRepeat = "no-repeat";
     }
 
     // Remove initial event listener and add another onClick event listener
