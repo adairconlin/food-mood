@@ -84,6 +84,10 @@ let displayDishes = function(data) {
         let selectDiv = $("[target=dish" + i + "]");
         let parentDiv = selectDiv[0].parentNode;
         selectDiv[0].innerHTML = data.results[i].title;
+        // Remove and add class names to move text to bottom
+        selectDiv[0].classList.remove("level-item");
+        selectDiv[0].classList.add("mb-2");
+        // Add background image to each div
         parentDiv.style.backgroundImage = ("url('" + data.results[i].image + "')");
         parentDiv.style.backgroundRepeat = "no-repeat";
     }
