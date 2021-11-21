@@ -128,6 +128,11 @@ body {
     /* background-color: #fffefa; */
 }
 
+ul {
+    list-style: circle;
+    padding-left: 2rem;
+}
+
 /* shadowing */
 .navbar, #top-column, #bottom-column, .cuisine-box, .ingredient-box {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
@@ -137,7 +142,13 @@ body {
 /* Cocktail Container Styling Start */
 .cocktail-container {
     display: flex;
-    flex-direction: column;
     padding: 5%;
+}
+
+.cocktail-name {
+    width: 80%;
+    color: white;
+    background-color: var(--red);
+    border-radius: 10px;
 }
 

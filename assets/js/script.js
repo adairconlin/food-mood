@@ -1,6 +1,18 @@
 // Display the cocktail and it's ingredients on the page
 let displayDrink = function(data) {
-    console.log(data.drinks);
+    let mainSection = document.querySelector(".cocktail-container");
+    let newDiv = document.createElement("div");
+    newDiv.classList = "cuisine-box level m-5";
+    newDiv.id = "top-column"
+    newDiv.style.backgroundImage = ("url('" + data.drinks[0].strDrinkThumb + "')");
+    newDiv.style.backgroundSize = "contain";
+    mainSection.appendChild(newDiv);
+
+    let newCocktail = document.createElement("h3");
+    newCocktail.textContent = data.drinks[0].strDrink;
+    newCocktail.classList = "title cocktail-name is-4 mb-2 p-1";
+    newDiv.appendChild(newCocktail);
+    
 };
 
 let createCocktailSection = function() {
