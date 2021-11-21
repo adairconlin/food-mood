@@ -1,6 +1,18 @@
 // Display the cocktail and it's ingredients on the page
 let displayDrink = function(data) {
-    console.log(data.drinks);
+    let mainSection = document.querySelector(".cocktail-container");
+    let newDiv = document.createElement("div");
+    newDiv.classList = "cuisine-box level m-5";
+    newDiv.id = "top-column"
+    newDiv.style.backgroundImage = ("url('" + data.drinks[0].strDrinkThumb + "')");
+    newDiv.style.backgroundSize = "contain";
+    mainSection.appendChild(newDiv);
+
+    let newCocktail = document.createElement("h3");
+    newCocktail.textContent = data.drinks[0].strDrink;
+    newCocktail.classList = "title cocktail-name is-4 mb-2 p-1";
+    newDiv.appendChild(newCocktail);
+    
 };
 
 let createCocktailSection = function() {
@@ -39,7 +51,7 @@ let displayIngredients = function(data) {
 
     let ingredientsTitle = document.createElement("h3");
     ingredientsTitle.textContent = "Ingredients:";
-    ingredientsTitle.classList = "title is-4 has-text-grey-dark pb-1 pt-4";
+    ingredientsTitle.classList = "title is-4 has-text-white pb-1 pt-4";
     newDiv.appendChild(ingredientsTitle);
 
     let newList = document.createElement("ul");
@@ -49,7 +61,7 @@ let displayIngredients = function(data) {
     for(let i = 0; i < ingredients.length; i++) {
         let newItem = document.createElement("li");
         newItem.textContent = ingredients[i].original;
-        newItem.classList = "is-size-5 has-text-grey-dark mb-2";
+        newItem.classList = "is-size-5 has-text-white mb-2";
         newList.appendChild(newItem);
     }
     
@@ -105,12 +117,17 @@ let displayDishes = function(data) {
         let selectDiv = $("[target=dish" + i + "]");
         let parentDiv = selectDiv[0].parentNode;
         selectDiv[0].innerHTML = data.results[i].title;
+        selectDiv[0].classList.remove("has-text-grey-dark");
+        selectDiv[0].classList.add("meal-name", "has-text-white");
+
         // Remove and add class names to move text to bottom
         selectDiv[0].classList.remove("level-item");
         selectDiv[0].classList.add("mb-2");
+
         // Add background image to each div
         parentDiv.style.backgroundImage = ("url('" + data.results[i].image + "')");
         parentDiv.style.backgroundRepeat = "no-repeat";
+        parentDiv.style.backgroundSize = "cover";
     }
 
     // Remove initial event listener and add another onClick event listener
