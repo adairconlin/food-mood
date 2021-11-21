@@ -50,8 +50,16 @@ body {
 .cuisine-box {
     height: 300px;
     width: 300px;
+    border-radius: 0.5rem;
     flex-direction: column;
     justify-content: end;
+}
+
+.ingredient-box {
+    width: 300px;
+    border-radius: 0.5rem;
+    padding: 0 15px 15px 15px;
+    background-color: var(--lightest-orange);
 }
 
 .title {
@@ -109,7 +117,7 @@ body {
 }
 
 /* shadowing */
-.navbar, #top-column, #bottom-column, .cuisine-box {
+.navbar, #top-column, #bottom-column, .cuisine-box, .ingredient-box {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
 }
 /* Cuisine Container Styling End */
