@@ -18,27 +18,22 @@ let getCocktail = function() {
     }
 };
 
-let styleMealChoice = function() {
-    let mainBody = document.querySelector(".options-container");
-    mainBody.classList.add("columns");
-}
-
 let displayIngredients = function(data) {
     // Assign the ingredient array to the variable `ingredients`
     let ingredients = data.results[0].missedIngredients;
-    let mainDiv = document.querySelector(".cuisine-box");
+    let mainDiv = document.querySelector(".options-container");
 
-    // let newDiv = document.createElement("div");
-    // newDiv.classList = "ingredient-box m-5 is-half-tablet is-one-third-desktop";
-    // mainDiv.appendChild(newDiv);
+    let newDiv = document.createElement("div");
+    newDiv.classList = "ingredient-box m-5 is-half-tablet is-one-third-desktop";
+    mainDiv.appendChild(newDiv);
 
     let ingredientsTitle = document.createElement("h3");
     ingredientsTitle.textContent = "Ingredients:";
     ingredientsTitle.classList = "title is-4 has-text-grey-dark pb-1 pt-4";
-    mainDiv.appendChild(ingredientsTitle);
+    newDiv.appendChild(ingredientsTitle);
 
     let newList = document.createElement("ul");
-    mainDiv.appendChild(newList);
+    newDiv.appendChild(newList);
 
     // Loop through the ingredients array and display ingredients
     for(let i = 0; i < ingredients.length; i++) {
@@ -47,7 +42,7 @@ let displayIngredients = function(data) {
         newItem.classList = "is-size-5 has-text-grey-dark mb-2";
         newList.appendChild(newItem);
     }
-    styleMealChoice();
+    
     getCocktail();
 
     // Replace current event listener - might have to be in another place?
