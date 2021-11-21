@@ -16,6 +16,11 @@ body {
     background-color: rgb(250, 246, 240);
 }
 
+.main-body {
+    display: flex;
+    justify-content: center;
+}
+
 /* Navbar Styling Start */
 .navbar {
     background-color: var(--orange);
@@ -44,7 +49,14 @@ body {
 
 /* Cuisine Container Stlying Start */
 .options-container {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
     padding: 5%;
+}
+
+.options-container .columns {
+    padding: 0 10rem;
 }
 
 .cuisine-box {
@@ -121,4 +133,11 @@ body {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
 }
 /* Cuisine Container Styling End */
+
+/* Cocktail Container Styling Start */
+.cocktail-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
 
