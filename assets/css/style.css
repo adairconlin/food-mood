@@ -50,6 +50,12 @@ body {
 .cuisine-box {
     height: 300px;
     width: 300px;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.title {
+    text-align: center;
 }
 
 /*If time provides, will find a better way for this effect with less code */

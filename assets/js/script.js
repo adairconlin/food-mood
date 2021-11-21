@@ -18,14 +18,13 @@ let getCocktail = function() {
     }
 };
 
-let displayIngredients = function(data, event) {
+let displayIngredients = function(data) {
     // Assign the ingredient array to the variable `ingredients`
     let ingredients = data.results[0].missedIngredients;
-    // Replace this - use jQuery to specify where the ingredients
-    // should be appended to based on where the user clicked
-    let selectDiv = event.target;
+    let mainBody = document.querySelector(".options-container");
+
     let newList = document.createElement("ul");
-    selectDiv.appendChild(newList);
+    mainBody.appendChild(newList);
 
     // Loop through the ingredients array and display ingredients
     for(let i = 0; i < ingredients.length; i++) {
@@ -43,7 +42,7 @@ let displayIngredients = function(data, event) {
 
 let clearOtherMeals = function(event) {
     // Grab main section with meal options as child elements
-    let mainBody = document.querySelector("section section")
+    let mainBody = document.querySelector(".options-container");
     // Assign the div of the meal that the user chose
     let selectedDish = $(event.target).closest("#cuisines")[0];
 
@@ -83,7 +82,14 @@ let displayDishes = function(data) {
     for(let i = 0; i < data.results.length; i++) {
         // Search for the correct div specified by its targe attribute
         let selectDiv = $("[target=dish" + i + "]");
+        let parentDiv = selectDiv[0].parentNode;
         selectDiv[0].innerHTML = data.results[i].title;
+        // Remove and add class names to move text to bottom
+        selectDiv[0].classList.remove("level-item");
+        selectDiv[0].classList.add("mb-2");
+        // Add background image to each div
+        parentDiv.style.backgroundImage = ("url('" + data.results[i].image + "')");
+        parentDiv.style.backgroundRepeat = "no-repeat";
     }
 
     // Remove initial event listener and add another onClick event listener
@@ -98,7 +104,7 @@ let displayDishes = function(data) {
 let getMeals = function(cuisine) {
     // Add your own apiKey and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=3&apiKey=" + adairKey;
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + adairKey;
 
     fetch(apiUrl).then(function(response) {
         if(response.ok) {
