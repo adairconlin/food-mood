@@ -71,7 +71,7 @@ body {
     width: 300px;
     border-radius: 0.5rem;
     padding: 0 15px 15px 15px;
-    background-color: var(--lightest-orange);
+    background-color: var(--orange);
 }
 
 .title {
@@ -79,7 +79,7 @@ body {
 }
 
 .meal-name {
-    background-color: var(--lightest-orange);
+    background-color: var(--orange);
     width: 80%;
     padding: 5px;
     border-radius: 10px;

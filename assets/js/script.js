@@ -51,7 +51,7 @@ let displayIngredients = function(data) {
 
     let ingredientsTitle = document.createElement("h3");
     ingredientsTitle.textContent = "Ingredients:";
-    ingredientsTitle.classList = "title is-4 has-text-grey-dark pb-1 pt-4";
+    ingredientsTitle.classList = "title is-4 has-text-white pb-1 pt-4";
     newDiv.appendChild(ingredientsTitle);
 
     let newList = document.createElement("ul");
@@ -61,7 +61,7 @@ let displayIngredients = function(data) {
     for(let i = 0; i < ingredients.length; i++) {
         let newItem = document.createElement("li");
         newItem.textContent = ingredients[i].original;
-        newItem.classList = "is-size-5 has-text-grey-dark mb-2";
+        newItem.classList = "is-size-5 has-text-white mb-2";
         newList.appendChild(newItem);
     }
     
@@ -117,7 +117,8 @@ let displayDishes = function(data) {
         let selectDiv = $("[target=dish" + i + "]");
         let parentDiv = selectDiv[0].parentNode;
         selectDiv[0].innerHTML = data.results[i].title;
-        selectDiv[0].classList.add("meal-name");
+        selectDiv[0].classList.remove("has-text-grey-dark");
+        selectDiv[0].classList.add("meal-name", "has-text-white");
 
         // Remove and add class names to move text to bottom
         selectDiv[0].classList.remove("level-item");
