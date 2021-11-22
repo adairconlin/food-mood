@@ -1,8 +1,103 @@
+let savePairing = function() {
+    let meal = document.querySelector(".meal-name").textContent;
+    let drink = document.querySelector(".cocktail-name").textContent;
+}
+
+let addFavoriteSection = function() {
+    let mainBody = document.querySelector(".main-body");
+    let newSection = document.createElement("section");
+    newSection.className = "userselect-container";
+    mainBody.appendChild(newSection);
+
+    let newDiv = document.createElement("div");
+    newDiv.classList = "user-select m-5 p-6 is-half-tablet is-third-desktop";
+    newSection.appendChild(newDiv);
+
+    let newHeader = document.createElement("h3");
+    newHeader.textContent = "Would you like to save this pairing as a favorite?";
+    newHeader.classList = "title has-text-white";
+    newDiv.appendChild(newHeader);
+
+    for(let i = 0; i < 2; i++) {
+        let button = document.createElement("button");
+        button.classList = "button save-button is-medium";
+        if(i < 1) {
+            button.textContent = "Save As Favorite";
+            button.addEventListener("click", savePairing)
+        } else {
+            button.textContent = "Find A New Pairing";
+            button.addEventListener("click", function() {
+                location.reload();
+            })
+        }
+        newDiv.appendChild(button);
+    }
+}
+
+let displayCocktailIngredients = function(data) {
+    let mainSection  = document.querySelector(".cocktail-container");
+    mainSection.style.flexDirection = "column";
+    let newDiv = document.createElement("div");
+    newDiv.classList = "ingredient-box cocktail-box m-5 is-half-tablet is-one-third-desktop";
+    mainSection.appendChild(newDiv);
+
+    let ingredientsTitle = document.createElement("h3");
+    ingredientsTitle.textContent = "Ingredients:";
+    ingredientsTitle.classList = "title is-4 has-text-white pb-1 pt-4";
+    newDiv.appendChild(ingredientsTitle);
+
+    let newList = document.createElement("ul");
+    newDiv.appendChild(newList);
+
+    for(let i = 1; i < 16; i++) {
+        let ingredient = "strIngredient" + i;
+        let listItem = document.createElement("li");
+        listItem.classList = "is-size-5 has-text-white mb-2";
+
+        if(data.drinks[0][ingredient]) {
+            listItem.textContent = data.drinks[0][ingredient];
+            newList.appendChild(listItem);
+        }
+    }
+
+    let cocktailChoice = document.querySelectorAll(".cocktail");
+    cocktailChoice.forEach(cocktail => {
+        cocktail.removeEventListener("click", cocktailSelectEvent);
+    })
+
+    addFavoriteSection();
+}
+
+let clearOtherCocktails = function(event) {
+    let mainSection = document.querySelector(".cocktail-container");
+    let cocktailSelection = $(event.target).closest(".cocktail")[0];
+
+    while(mainSection.firstChild) {
+        mainSection.removeChild(mainSection.firstChild);
+    }
+    mainSection.appendChild(cocktailSelection);
+}
+
+let cocktailSelectEvent = function(event) {
+    clearOtherCocktails(event);
+
+    let cocktail = $(event.target).text().trim();
+    let apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + cocktail;
+    
+    fetch(apiUrl).then(function(response) {
+        if(response.ok) {
+            response.json().then(function(data) {
+                displayCocktailIngredients(data);
+            })
+        }
+    })
+};
+
 // Display the cocktail and it's ingredients on the page
 let displayDrink = function(data) {
     let mainSection = document.querySelector(".cocktail-container");
     let newDiv = document.createElement("div");
-    newDiv.classList = "cuisine-box level m-5";
+    newDiv.classList = "cocktail cuisine-box level m-5";
     newDiv.id = "top-column"
     newDiv.style.backgroundImage = ("url('" + data.drinks[0].strDrinkThumb + "')");
     newDiv.style.backgroundSize = "contain";
@@ -12,6 +107,11 @@ let displayDrink = function(data) {
     newCocktail.textContent = data.drinks[0].strDrink;
     newCocktail.classList = "title cocktail-name is-4 mb-2 p-1";
     newDiv.appendChild(newCocktail);
+
+    let cocktailChoice = document.querySelectorAll(".cocktail");
+    cocktailChoice.forEach(cocktail => {
+        cocktail.addEventListener("click", cocktailSelectEvent);
+    })
     
 };
 

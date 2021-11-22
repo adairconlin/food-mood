@@ -74,6 +74,10 @@ body {
     background-color: var(--orange);
 }
 
+.cocktail-box {
+    background-color: var(--red);
+}
+
 .title {
     text-align: center;
 }
@@ -141,7 +145,8 @@ ul {
 }
 
 /* shadowing */
-.navbar, #top-column, #bottom-column, .cuisine-box, .ingredient-box {
+.navbar, #top-column, #bottom-column, 
+.cuisine-box, .ingredient-box, .user-select {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
 }
 /* Cuisine Container Styling End */
@@ -159,3 +164,30 @@ ul {
     border-radius: 10px;
 }
 
+/* User Save Section Styling Start */
+.userselect-container {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    padding: 5%;
+}
+
+.user-select {
+    text-align: center;
+    background-color: var(--darker-red);
+    border-radius: 10px;
+}
+
+.save-button {
+    color: var(--darker-red);
+    background-color: var(--orange);
+    border: none;
+    border-radius: 10px;
+    margin: 3px 20px;
+    transition: .3s ease;
+}
+
+.save-button:hover {
+    background-color: var(--dark-orange);
+    color: white;
+}
