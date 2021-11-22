@@ -74,6 +74,10 @@ body {
     background-color: var(--orange);
 }
 
+.cocktail-box {
+    background-color: var(--red);
+}
+
 .title {
     text-align: center;
 }
