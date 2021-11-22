@@ -146,7 +146,7 @@ ul {
 
 /* shadowing */
 .navbar, #top-column, #bottom-column, 
-.cuisine-box, .ingredient-box, .user-select, .user-favorites {
+.cuisine-box, .ingredient-box, .user-select {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
 }
 /* Cuisine Container Styling End */

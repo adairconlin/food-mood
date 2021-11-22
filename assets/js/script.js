@@ -315,7 +315,7 @@ let loadUserFavorites = function() {
         let drink = favorites[i].split("& ")[1];
 
         let pairingDiv = document.createElement("div");
-        pairingDiv.classList = "pairing";
+        pairingDiv.classList = "pairing my-6";
         newSection.appendChild(pairingDiv);
 
         let mealDiv = document.createElement("div");
