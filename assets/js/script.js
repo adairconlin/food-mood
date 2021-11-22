@@ -1,3 +1,39 @@
+let savePairing = function() {
+    let meal = document.querySelector(".meal-name").textContent;
+    let drink = document.querySelector(".cocktail-name").textContent;
+}
+
+let addFavoriteSection = function() {
+    let mainBody = document.querySelector(".main-body");
+    let newSection = document.createElement("section");
+    newSection.className = "userselect-container";
+    mainBody.appendChild(newSection);
+
+    let newDiv = document.createElement("div");
+    newDiv.classList = "user-select m-5 p-6 is-half-tablet is-third-desktop";
+    newSection.appendChild(newDiv);
+
+    let newHeader = document.createElement("h3");
+    newHeader.textContent = "Would you like to save this pairing as a favorite?";
+    newHeader.classList = "title has-text-white";
+    newDiv.appendChild(newHeader);
+
+    for(let i = 0; i < 2; i++) {
+        let button = document.createElement("button");
+        button.classList = "button save-button is-medium";
+        if(i < 1) {
+            button.textContent = "Save As Favorite";
+            button.addEventListener("click", savePairing)
+        } else {
+            button.textContent = "Find A New Pairing";
+            button.addEventListener("click", function() {
+                location.reload();
+            })
+        }
+        newDiv.appendChild(button);
+    }
+}
+
 let displayCocktailIngredients = function(data) {
     let mainSection  = document.querySelector(".cocktail-container");
     mainSection.style.flexDirection = "column";
@@ -24,6 +60,12 @@ let displayCocktailIngredients = function(data) {
         }
     }
 
+    let cocktailChoice = document.querySelectorAll(".cocktail");
+    cocktailChoice.forEach(cocktail => {
+        cocktail.removeEventListener("click", cocktailSelectEvent);
+    })
+
+    addFavoriteSection();
 }
 
 let clearOtherCocktails = function(event) {
@@ -33,7 +75,6 @@ let clearOtherCocktails = function(event) {
     while(mainSection.firstChild) {
         mainSection.removeChild(mainSection.firstChild);
     }
-
     mainSection.appendChild(cocktailSelection);
 }
 
