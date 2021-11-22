@@ -191,3 +191,15 @@ ul {
     background-color: var(--dark-orange);
     color: white;
 }
+
+.user-favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-shrink: 1;
+    padding: 5%;
+}
+
+.pairing {
+    display: flex;
+}
