@@ -1,7 +1,30 @@
+let getFavorites = function() {
+    let list = [];
+    let favorites = JSON.parse(localStorage.getItem("favorites"));
+    if(favorites) {
+        list.push(favorites);
+    } else {
+        list = "";
+    }
+    return list;
+};
+
 let savePairing = function() {
+    let saveData = getFavorites();
     let meal = document.querySelector(".meal-name").textContent;
     let drink = document.querySelector(".cocktail-name").textContent;
-}
+    let pairing = meal + " & " + drink;
+    console.log(saveData + " savePairing() saveData");
+
+    if(saveData) {
+        saveData.push(pairing);
+    } else {
+        saveData = pairing;
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(saveData));
+    document.querySelector(".save-button").removeEventListener("click", savePairing);
+};
 
 let addFavoriteSection = function() {
     let mainBody = document.querySelector(".main-body");
@@ -32,7 +55,7 @@ let addFavoriteSection = function() {
         }
         newDiv.appendChild(button);
     }
-}
+};
 
 let displayCocktailIngredients = function(data) {
     let mainSection  = document.querySelector(".cocktail-container");
@@ -66,7 +89,7 @@ let displayCocktailIngredients = function(data) {
     })
 
     addFavoriteSection();
-}
+};
 
 let clearOtherCocktails = function(event) {
     let mainSection = document.querySelector(".cocktail-container");
@@ -76,7 +99,7 @@ let clearOtherCocktails = function(event) {
         mainSection.removeChild(mainSection.firstChild);
     }
     mainSection.appendChild(cocktailSelection);
-}
+};
 
 let cocktailSelectEvent = function(event) {
     clearOtherCocktails(event);
@@ -120,7 +143,7 @@ let createCocktailSection = function() {
     let newSection = document.createElement("section");
     newSection.className = "cocktail-container";
     mainBody.appendChild(newSection);
-}
+};
 
 // Replace this fetch with the correct url with the corresponding cocktail
 // based on the selected dish
@@ -186,7 +209,7 @@ let clearOtherMeals = function(event) {
 
     // Add the div of the meal that the user chose
     mainBody.appendChild(selectedDish);
-}
+};
 
 // When a meal is selected, display the ingredient data of that specified meal
 let getRecipe = function(event) {
@@ -196,7 +219,8 @@ let getRecipe = function(event) {
     let dish = $(event.target).closest("#cuisines").find(".title").text();
     // Add a variable with your own API key and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
+    let adairKey2 = "11e8d764720140219f15bde44e6550be";
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey2;
 
     // Grab ingredient data from the specified dish
     fetch(apiUrl).then(function(response) {
@@ -242,7 +266,8 @@ let displayDishes = function(data) {
 let getMeals = function(cuisine) {
     // Add your own apiKey and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + adairKey;
+    let adairKey2 = "11e8d764720140219f15bde44e6550be";
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + adairKey2;
 
     fetch(apiUrl).then(function(response) {
         if(response.ok) {
@@ -259,10 +284,57 @@ let getMeals = function(cuisine) {
 let cuisineSelectEvent = function(event) {
     let choice = event.target.textContent;
     getMeals(choice.trim());
-}
+};
 
 // Add an onClick event listener for the cuisine boxes
 let cuisines = document.querySelectorAll("#cuisines");
 cuisines.forEach(cuisine => {
     cuisine.addEventListener("click", cuisineSelectEvent)
 });
+
+let clearMainPage = function() {
+    let mainBody = document.querySelector(".main-body");
+    while(mainBody.firstChild) {
+        mainBody.removeChild(mainBody.firstChild);
+    }
+};
+
+let loadUserFavorites = function() {
+    let saveData = getFavorites().toString();
+    let favorites = saveData.split(",");
+
+    clearMainPage();
+
+    let mainBody = document.querySelector(".main-body");
+    let newSection = document.createElement("section");
+    newSection.classList = "user-favorites";
+    mainBody.appendChild(newSection);
+
+    for(let i = 0; i < favorites.length; i++) {
+        let dish = favorites[i].split(" &")[0];
+        let drink = favorites[i].split("& ")[1];
+
+        let pairingDiv = document.createElement("div");
+        pairingDiv.classList = "pairing";
+        newSection.appendChild(pairingDiv);
+
+        let mealDiv = document.createElement("div");
+        mealDiv.classList = "favorite-meal cuisine-box";
+        let drinkDiv = document.createElement("div");
+        drinkDiv.classList = "favorite-drink cuisine-box";
+        pairingDiv.appendChild(mealDiv);
+        pairingDiv.appendChild(drinkDiv);
+
+        let mealTitle = document.createElement("h3");
+        mealTitle.classList = "title is-4 m-5";
+        mealTitle.textContent = dish;
+        mealDiv.appendChild(mealTitle);
+
+        let drinkTitle = document.createElement("h3");
+        drinkTitle.classList = "title is-4 m-5";
+        drinkTitle.textContent = drink;
+        drinkDiv.appendChild(drinkTitle);
+    }
+};
+
+document.querySelector("#favorites").addEventListener("click", loadUserFavorites);

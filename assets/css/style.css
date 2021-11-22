@@ -146,7 +146,7 @@ ul {
 
 /* shadowing */
 .navbar, #top-column, #bottom-column, 
-.cuisine-box, .ingredient-box, .user-select {
+.cuisine-box, .ingredient-box, .user-select, .user-favorites {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
 }
 /* Cuisine Container Styling End */
@@ -190,4 +190,16 @@ ul {
 .save-button:hover {
     background-color: var(--dark-orange);
     color: white;
+}
+
+.user-favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-shrink: 1;
+    padding: 5%;
+}
+
+.pairing {
+    display: flex;
 }
