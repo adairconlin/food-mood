@@ -155,6 +155,11 @@ ul {
 .navbar, #top-column, #bottom-column, 
 .cuisine-box, .ingredient-box, .user-select {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
+    transition: 0.25s;
+}
+
+.cuisine-box:hover, .ingredient-box:hover {
+    box-shadow: 5px 10px 8px rgb(143, 143, 143);
 }
 /* Cuisine Container Styling End */
 
@@ -236,4 +241,51 @@ ul {
     font-weight: lighter;
     font-style: italic;
     color: white;
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 1023px) {
+    .navbar {
+        height: 12%;
+    }
+
+    .nav-saying {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 1;
+    }
+    
+    .cuisine-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+    .nav-saying {
+        font-size: 1.25rem;
+    }
+    
+    .cuisine-box h3 {
+        font-style: italic;
+    }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+
+    .nav-saying {
+        max-width: 50%;
+        padding: 5px;
+    }
+
+    .options-container {
+        margin: 0 0.75rem 0.75rem 0.75rem;
+    }
+    
 }
