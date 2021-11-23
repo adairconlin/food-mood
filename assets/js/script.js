@@ -221,7 +221,7 @@ let getRecipe = function(event) {
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey2;
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
 
     // Grab ingredient data from the specified dish
     fetch(apiUrl).then(function(response) {
@@ -278,7 +278,7 @@ let getMeals = function(cuisine, cuisineClass) {
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + bryanKey;
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + adairKey;
 
     fetch(apiUrl).then(function(response) {
         if(response.ok) {
@@ -309,6 +309,11 @@ let clearMainPage = function() {
     while(mainBody.firstChild) {
         mainBody.removeChild(mainBody.firstChild);
     }
+
+    let heroSection = document.querySelector(".hero-body");
+    while(heroSection.firstChild) {
+        heroSection.removeChild(heroSection.firstChild);
+    }
 };
 
 let loadUserFavorites = function() {
@@ -318,6 +323,7 @@ let loadUserFavorites = function() {
     clearMainPage();
 
     let mainBody = document.querySelector(".main-body");
+    mainBody.style.justifyContent = "center";
     let newSection = document.createElement("section");
     newSection.classList = "user-favorites";
     mainBody.appendChild(newSection);
