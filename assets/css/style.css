@@ -30,6 +30,13 @@ body {
 
 .navbar a, .navbar span {
     color: white;
+    transition: .5s ease;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    color: var(--orange);
+    background-color: var(--main-bg-color);
 }
 /* Navbar Styling End */
 
