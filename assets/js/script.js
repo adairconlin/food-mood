@@ -310,32 +310,49 @@ let loadUserFavorites = function() {
     let newSection = document.createElement("section");
     newSection.classList = "user-favorites";
     mainBody.appendChild(newSection);
+    
+    console.log(favorites);
 
-    for(let i = 0; i < favorites.length; i++) {
-        let dish = favorites[i].split(" &")[0];
-        let drink = favorites[i].split("& ")[1];
+    if (favorites == "" ) {
+        console.log("test")
+        let grabSection = document.querySelector(".user-favorites");
+        let noFavorites = document.createElement("div");
+        let noFavEl = document.createElement("h3");
 
-        let pairingDiv = document.createElement("div");
-        pairingDiv.classList = "pairing my-3";
-        newSection.appendChild(pairingDiv);
+        noFavorites.classList = "favorite-meal cuisine-box";
+        noFavEl.classList = "title is-4 m-5";
+        noFavEl.textContent = "You don't have any favorite pairings yet!";
+        grabSection.appendChild(noFavorites);
+        noFavorites.appendChild(noFavEl);
 
-        let mealDiv = document.createElement("div");
-        mealDiv.classList = "favorite-meal cuisine-box";
-        let drinkDiv = document.createElement("div");
-        drinkDiv.classList = "favorite-drink cuisine-box";
-        pairingDiv.appendChild(mealDiv);
-        pairingDiv.appendChild(drinkDiv);
-
-        let mealTitle = document.createElement("h3");
-        mealTitle.classList = "title is-4 m-5";
-        mealTitle.textContent = dish;
-        mealDiv.appendChild(mealTitle);
-
-        let drinkTitle = document.createElement("h3");
-        drinkTitle.classList = "title is-4 m-5";
-        drinkTitle.textContent = drink;
-        drinkDiv.appendChild(drinkTitle);
+    } else {
+        for(let i = 0; i < favorites.length; i++) {
+            let dish = favorites[i].split(" &")[0];
+            let drink = favorites[i].split("& ")[1];
+    
+            let pairingDiv = document.createElement("div");
+            pairingDiv.classList = "pairing my-3";
+            newSection.appendChild(pairingDiv);
+    
+            let mealDiv = document.createElement("div");
+            mealDiv.classList = "favorite-meal cuisine-box";
+            let drinkDiv = document.createElement("div");
+            drinkDiv.classList = "favorite-drink cuisine-box";
+            pairingDiv.appendChild(mealDiv);
+            pairingDiv.appendChild(drinkDiv);
+    
+            let mealTitle = document.createElement("h3");
+            mealTitle.classList = "title is-4 m-5";
+            mealTitle.textContent = dish;
+            mealDiv.appendChild(mealTitle);
+    
+            let drinkTitle = document.createElement("h3");
+            drinkTitle.classList = "title is-4 m-5";
+            drinkTitle.textContent = drink;
+            drinkDiv.appendChild(drinkTitle);
+        }
     }
+
 };
 
 document.querySelector("#favorites").addEventListener("click", loadUserFavorites);
