@@ -14,7 +14,6 @@ let savePairing = function() {
     let meal = document.querySelector(".meal-name").textContent;
     let drink = document.querySelector(".cocktail-name").textContent;
     let pairing = meal + " & " + drink;
-    console.log(saveData + " savePairing() saveData");
 
     if(saveData) {
         saveData.push(pairing);
@@ -46,7 +45,10 @@ let addFavoriteSection = function() {
         button.classList = "button save-button is-medium";
         if(i < 1) {
             button.textContent = "Save As Favorite";
-            button.addEventListener("click", savePairing)
+            button.addEventListener("click", function(event) {
+                event.target.textContent = "Saved!"
+                savePairing();
+            })
         } else {
             button.textContent = "Find A New Pairing";
             button.addEventListener("click", function() {
@@ -327,11 +329,9 @@ let loadUserFavorites = function() {
     let newSection = document.createElement("section");
     newSection.classList = "user-favorites";
     mainBody.appendChild(newSection);
-    
-    console.log(favorites);
+
 
     if (favorites == "" ) {
-        console.log("test")
         let grabSection = document.querySelector(".user-favorites");
         let noFavorites = document.createElement("div");
         let noFavEl = document.createElement("h3");
