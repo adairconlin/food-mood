@@ -28,8 +28,11 @@ body {
     border-bottom-right-radius: 1rem;
 }
 
-.navbar a, .navbar span {
-    color: white;
+
+
+.navbar a:hover {
+    color: var(--orange);
+    background-color: var(--main-bg-color);
 }
 /* Navbar Styling End */
 
@@ -148,6 +151,7 @@ ul {
 .navbar, #top-column, #bottom-column, 
 .cuisine-box, .ingredient-box, .user-select {
     box-shadow: 5px 10px 8px rgb(204, 204, 204);
+    background-color: white;
 }
 /* Cuisine Container Styling End */
 
@@ -205,6 +209,24 @@ ul {
     display: flex;
 }
 
+
+.hero-body {
+    background-color: rgb(204, 204, 204);
+    display: flex;
+    align-items: flex-start;
+}
+
+img {
+    max-width: 100%;
+}
+
+.hero-foot {
+    background-color: rgb(204, 204, 204);
+}
+
+
+
+
 .favorite-meal {
     height: 100px;
     background-color: var(--dark-orange);
@@ -230,3 +252,4 @@ ul {
     font-style: italic;
     color: white;
 }
+
