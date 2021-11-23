@@ -219,6 +219,8 @@ let getRecipe = function(event) {
     let dish = $(event.target).closest("#cuisines").find(".title").text();
     // Add a variable with your own API key and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
+    let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey2;
 
@@ -233,8 +235,17 @@ let getRecipe = function(event) {
     })
 };
 
+// Add correct classname to correspond with the correct 
+let renameDivs = function(cuisineClass) {
+    let divs = document.querySelectorAll(".cuisine-box");
+    divs.forEach(rename => {
+        rename.classList.replace(rename.classList[0], cuisineClass);
+    })
+};
+
 // Display the loaded meals
-let displayDishes = function(data) {
+let displayDishes = function(data, cuisineClass) {
+    renameDivs(cuisineClass)
     // Loop through the amount of meal results and display them on the page
     for(let i = 0; i < data.results.length; i++) {
         // Search for the correct div specified by its targe attribute
@@ -263,7 +274,7 @@ let displayDishes = function(data) {
 };
 
 // Search for a specified amount of meals based on the selected cuisine
-let getMeals = function(cuisine) {
+let getMeals = function(cuisine, cuisineClass) {
     // Add your own apiKey and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
@@ -274,7 +285,7 @@ let getMeals = function(cuisine) {
         if(response.ok) {
             response.json().then(function(data) {
                 // Get meal data from selected cuisine and call displayDishes()
-                displayDishes(data);
+                displayDishes(data, cuisineClass);
             })
         }
     })
@@ -283,8 +294,9 @@ let getMeals = function(cuisine) {
 //  When the user clicks on a cuisine options, this function saves
 // that cuisine, trims the contents of any whitespace, then calls getMeals()
 let cuisineSelectEvent = function(event) {
+    let cuisineClass = $(event.target).closest(".cuisine-box")[0].classList[0];
     let choice = event.target.textContent;
-    getMeals(choice.trim());
+    getMeals(choice.trim(), cuisineClass);
 };
 
 // Add an onClick event listener for the cuisine boxes
