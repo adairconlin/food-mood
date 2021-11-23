@@ -219,13 +219,8 @@ let getRecipe = function(event) {
     let dish = $(event.target).closest("#cuisines").find(".title").text();
     // Add a variable with your own API key and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
-<<<<<<< HEAD
-    let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
-=======
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey2;
->>>>>>> 029cc799e4f260ab0226f2ea8b84b260c2d2573b
 
     // Grab ingredient data from the specified dish
     fetch(apiUrl).then(function(response) {
@@ -273,7 +268,7 @@ let getMeals = function(cuisine) {
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + adairKey2;
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + bryanKey;
 
     fetch(apiUrl).then(function(response) {
         if(response.ok) {

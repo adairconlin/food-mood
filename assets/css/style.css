@@ -197,9 +197,36 @@ ul {
     flex-wrap: wrap;
     justify-content: space-evenly;
     flex-shrink: 1;
+    flex-direction: column;
     padding: 5%;
 }
 
 .pairing {
     display: flex;
+}
+
+.favorite-meal {
+    height: 100px;
+    background-color: var(--dark-orange);
+    transition: 0.25s;
+}
+
+.favorite-meal:hover {
+    background-color: var(--orange);
+}
+
+.favorite-drink {
+    height: 100px;
+    background-color: var(--red);
+    transition: 0.25s;
+}
+
+.favorite-drink:hover {
+    background-color: var(--darker-red);
+}
+
+.favorite-drink h3, .favorite-meal h3 {
+    font-weight: lighter;
+    font-style: italic;
+    color: white;
 }
