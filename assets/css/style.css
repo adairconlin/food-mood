@@ -13,11 +13,13 @@
 }
 
 body {
+    margin: 0;
     background-color: rgb(250, 246, 240);
 }
 
 .main-body {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -60,10 +62,6 @@ body {
     flex-direction: column;
     flex-shrink: 1;
     padding: 5%;
-}
-
-.options-container .columns {
-    padding: 0 10rem;
 }
 
 .cuisine-box {
@@ -166,6 +164,7 @@ ul {
 /* Cocktail Container Styling Start */
 .cocktail-container {
     display: flex;
+    flex-wrap: wrap;
     padding: 5%;
 }
 
@@ -280,8 +279,7 @@ ul {
 @media screen and (max-width: 575px) {
 
     .nav-saying {
-        max-width: 50%;
-        padding: 5px;
+        display: none;
     }
 
     .options-container {
