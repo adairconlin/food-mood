@@ -220,7 +220,6 @@ let getRecipe = function(event) {
     // Add a variable with your own API key and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey2;
 
