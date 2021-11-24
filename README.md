@@ -1,5 +1,5 @@
 # Food Mood
-Food Mood is an application that returns meals and cocktail for the user to make. The user can select from nine difference cuisines, then they can select 9 different meal options from their specified cuisine. Once the meal is selected, they are given three cocktail options for the night. This application also has the option to save the users favorite pairings so they can go back and make it again.
+Food Mood is an application that returns meals and cocktail for the user to make. The user can select from six difference cuisines, then they can select six different meal options from their specified cuisine. Once the meal is selected, they are given three cocktail options for the night. This application also has the option to save the users favorite pairings so they can go back and make it again.
 
 ## Our User Story
 
