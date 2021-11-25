@@ -23,7 +23,7 @@ In order to get the data on both the food and cocktails, as well as store the us
 * HTML, CSS, JS, jQuery, and Bulma
 
 ## Using our application
-Visit our project [here](https://adairconlin.art/project-one/)!
+Visit our project [here](https://adairconlin.art/food-mood/)! Fair warning: There is a limit to the amount of requests made per day.
 ### Introduction
 Upon opening the application, the user is met with a navigation bar and a hero section with our custom-made FoodMood logo. When the user scrolls down, they can choose from the cuisine and then they can choose from the following sections as more options are dynamically loaded on to the page.
 
