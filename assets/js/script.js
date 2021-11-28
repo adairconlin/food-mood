@@ -14,7 +14,6 @@ let savePairing = function() {
     let meal = document.querySelector(".meal-name").textContent;
     let drink = document.querySelector(".cocktail-name").textContent;
     let pairing = meal + " & " + drink;
-    console.log(saveData + " savePairing() saveData");
 
     if(saveData) {
         saveData.push(pairing);
@@ -46,7 +45,10 @@ let addFavoriteSection = function() {
         button.classList = "button save-button is-medium";
         if(i < 1) {
             button.textContent = "Save As Favorite";
-            button.addEventListener("click", savePairing)
+            button.addEventListener("click", function(event) {
+                event.target.textContent = "Saved!"
+                savePairing();
+            })
         } else {
             button.textContent = "Find A New Pairing";
             button.addEventListener("click", function() {
@@ -220,9 +222,9 @@ let getRecipe = function(event) {
     // Add a variable with your own API key and replace mine in the apiUrl
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + bryanKey;
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
-    // let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + bryanKey;
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
+
 
     // Grab ingredient data from the specified dish
     fetch(apiUrl).then(function(response) {
@@ -279,7 +281,7 @@ let getMeals = function(cuisine, cuisineClass) {
     let adairKey = "52217abe5a7b45b58b6466ee89a8d551";
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let bryanKey = "e7f051642373424f8d6926d5bbf50dcc";
-    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + bryanKey;
+    let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + cuisine + "&number=6&apiKey=" + adairKey;
 
     fetch(apiUrl).then(function(response) {
         if(response.ok) {
@@ -310,6 +312,11 @@ let clearMainPage = function() {
     while(mainBody.firstChild) {
         mainBody.removeChild(mainBody.firstChild);
     }
+
+    let heroSection = document.querySelector(".hero-body");
+    while(heroSection.firstChild) {
+        heroSection.removeChild(heroSection.firstChild);
+    }
 };
 
 let loadUserFavorites = function() {
@@ -319,14 +326,13 @@ let loadUserFavorites = function() {
     clearMainPage();
 
     let mainBody = document.querySelector(".main-body");
+    mainBody.style.justifyContent = "center";
     let newSection = document.createElement("section");
     newSection.classList = "user-favorites";
     mainBody.appendChild(newSection);
-    
-    console.log(favorites);
+
 
     if (favorites == "" ) {
-        console.log("test")
         let grabSection = document.querySelector(".user-favorites");
         let noFavorites = document.createElement("div");
         let noFavEl = document.createElement("h3");

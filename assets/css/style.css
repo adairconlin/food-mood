@@ -5,6 +5,7 @@
     --orange: #C77146;
     --lightest-orange: #EA8C55;
     --main-bg-color: #fde0cf;
+    --info-blue: hsl(204, 86%, 53%);
 }
 
 /* APPLY FONT FAMILY TO PAGE */
@@ -29,6 +30,7 @@ body {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
 }
+
 
 .navbar a, .navbar span {
     color: white;
@@ -109,18 +111,18 @@ body {
 .french:hover {
     background-color: #ffb1b1b9;
 }
-.indian {
+.italian {
     background-color: #fdffb1;
     transition: 0.25s;
 }
-.indian:hover {
+.italian:hover {
     background-color: #fcffb18f;
 }
-.italian {
+.indian {
     background-color: #b1b9ff;
     transition: 0.25s;
 }
-.italian:hover {
+.indian:hover {
     background-color: #b1b9ffb2;
 }
 .mexican {
@@ -171,7 +173,7 @@ ul {
 .cocktail-name {
     width: 80%;
     color: white;
-    background-color: var(--red);
+    background-color: var(--dark-orange);
     border-radius: 10px;
 }
 
@@ -185,13 +187,13 @@ ul {
 
 .user-select {
     text-align: center;
-    background-color: var(--darker-red);
     border-radius: 10px;
+    background-color: var(--info-blue);
 }
 
 .save-button {
-    color: var(--darker-red);
-    background-color: var(--orange);
+    color: var(--info-blue);
+    background-color: white;
     border: none;
     border-radius: 10px;
     margin: 3px 20px;
@@ -199,7 +201,7 @@ ul {
 }
 
 .save-button:hover {
-    background-color: var(--dark-orange);
+    background-color: var(--orange);
     color: white;
 }
 
@@ -216,24 +218,42 @@ ul {
     display: flex;
 }
 
+
+.hero-body {
+    background-color: rgb(204, 204, 204);
+    display: flex;
+    align-items: flex-start;
+}
+
+img {
+    max-width: 100%;
+}
+
+.hero-foot {
+    background-color: rgb(204, 204, 204);
+}
+
+
+
+
 .favorite-meal {
+    height: 100px;
+    background-color: var(--orange);
+    transition: 0.25s;
+}
+
+.favorite-meal:hover {
+    background-color: var(--lightest-orange);
+}
+
+.favorite-drink {
     height: 100px;
     background-color: var(--dark-orange);
     transition: 0.25s;
 }
 
-.favorite-meal:hover {
-    background-color: var(--orange);
-}
-
-.favorite-drink {
-    height: 100px;
-    background-color: var(--red);
-    transition: 0.25s;
-}
-
 .favorite-drink:hover {
-    background-color: var(--darker-red);
+    background-color: var(--lightest-orange);
 }
 
 .favorite-drink h3, .favorite-meal h3 {
