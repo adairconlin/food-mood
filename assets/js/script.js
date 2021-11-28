@@ -225,6 +225,7 @@ let getRecipe = function(event) {
     let adairKey2 = "11e8d764720140219f15bde44e6550be";
     let apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + dish + "&fillIngredients=true&apiKey=" + adairKey;
 
+
     // Grab ingredient data from the specified dish
     fetch(apiUrl).then(function(response) {
         if(response.ok) {
