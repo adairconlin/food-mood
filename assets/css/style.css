@@ -31,9 +31,11 @@ body {
     border-bottom-right-radius: 1rem;
 }
 
+.navbar a {
+    color: white;
+}
 
 .navbar a, .navbar span {
-    color: white;
     transition: .5s ease;
     border-radius: 5px;
 }
@@ -281,6 +283,8 @@ img {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        height: 200px;
+        width: 200px;
     }
 }
 
@@ -288,6 +292,11 @@ img {
 @media screen and (max-width: 768px) {
     .nav-saying {
         font-size: 1.25rem;
+    }
+
+    .cuisine-box {
+        height: 150px;
+        width: 150px;
     }
     
     .cuisine-box h3 {
@@ -304,6 +313,12 @@ img {
 
     .options-container {
         margin: 0 0.75rem 0.75rem 0.75rem;
+    }
+
+    
+    .cuisine-box {
+        height: 200px;
+        width: 200px;
     }
     
 }
